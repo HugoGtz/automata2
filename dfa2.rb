@@ -10,10 +10,26 @@
 
 
     def run(input)  
+      token ="";
       current_state = @start
       for i in input
         current_state = @transition[current_state][i]
-        puts "El estado en el que estoy #{current_state}"
+        if (i==1)
+          token = ";"
+        end
+        if (i==2)
+          token = "num"
+        end
+        if (i==3)
+          token = "letra"
+        end
+        if (i==4)
+          token = "="
+        end
+        if (i==5)
+          token = "espacio"
+        end
+        puts "El estado en el que estoy #{current_state} y soy el token : #{token}"
       end
       return true if @end.include? current_state
       return false
